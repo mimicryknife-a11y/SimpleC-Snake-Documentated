@@ -71,11 +71,33 @@ struct RenderState {
 //******************Structs/Classes******************
 
 //******************Functions*****************
+/**
+* @brief Возвращает цвет для ячейки на переданных координатах.
+* @params xPos Позиция клетки по координате X
+* @params yPos Позиция клетки по координате Y
+* @return uint32 Код цвета в виде uint32 числа.
+*/
 uint32 calculateTileColor(const int xPos, const int yPos);
+
+/**
+* @brief Получает FPS - Frames Per Second
+* @return int Кадры в секунду
+*/
 int getFPS();
+
+/**
+* @brief Получает FPS - Frames Per Second
+* @return bool Состаяние клетки
+*/
 bool getTickState();
 
-
+/**
+* @brief Ограничивает значение
+* @params min T1 Минимальное значение для val
+* @params val T2 Значение которое будет ограничено в размере
+* @params max T3 Максимальное значение для val
+* @return T2 Значение val, которое: min >= val <= max
+*/
 template <typename T1, typename T2, typename T3> inline T2 clamp(T1 min, T2 val, T3 max) {
 	if		(val < min) return static_cast<T2>(min);
 	else if (val > max) return static_cast<T2>(max);
